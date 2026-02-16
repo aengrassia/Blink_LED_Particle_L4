@@ -34,4 +34,41 @@ void loop() {
   // delay( 10 * 1000 ); // milliseconds and blocking - see docs for more info!
 }
  // Emily W commit changes
+int ledPin = 13; // LED connected to pin 13
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // S (Three short flashes)
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(ledPin, HIGH);
+    delay(150); // Short flash
+    digitalWrite(ledPin, LOW);
+    delay(150);
+  }
+  
+  delay(100); // Small gap between letters
+
+  // O (Three long flashes)
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(ledPin, HIGH);
+    delay(500); // Long flash
+    digitalWrite(ledPin, LOW);
+    delay(150);
+  }
+  
+  delay(100); // Small gap between letters
+
+  // S (Three short flashes)
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(ledPin, HIGH);
+    delay(150); // Short flash
+    digitalWrite(ledPin, LOW);
+    delay(150);
+  }
+  
+  delay(2000); // Long pause before repeating the whole sequence
+}
 
