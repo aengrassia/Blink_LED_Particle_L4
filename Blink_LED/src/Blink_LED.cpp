@@ -1,74 +1,40 @@
-/* 
- * Project myProject
- * Author: Your Name
- * Date: 
- * For comprehensive documentation and examples, please visit:
- * https://docs.particle.io/firmware/best-practices/firmware-template/
- */
-
-// Include Particle Device OS APIs
 #include "Particle.h"
 
-// Let Device OS manage the connection to the Particle Cloud
-SYSTEM_MODE(AUTOMATIC);
+const int LED_PIN = D7;
+const int UNIT = 200;
 
-// Run the application and system concurrently in separate threads
-SYSTEM_THREAD(ENABLED);
-
-// Show system, cloud connectivity, and application logs over USB
-// View logs with CLI using 'particle serial monitor --follow'
-SerialLogHandler logHandler(LOG_LEVEL_INFO);
-
-// setup() runs once, when the device is first turned on
-void setup() {
-  // Put initialization like pinMode and begin functions here
+void blinkOn(int duration) {
+    digitalWrite(LED_PIN, HIGH);
+    delay(duration);
+    digitalWrite(LED_PIN, LOW);
 }
 
-// loop() runs over and over again, as quickly as it can execute.
-void loop() {
-  // The core of your code will likely live here.
-
-  // Example: Publish event to cloud every 10 seconds. Uncomment the next 3 lines to try it!
-  // Log.info("Sending Hello World to the cloud!");
-  // Particle.publish("Hello world!");
-  // delay( 10 * 1000 ); // milliseconds and blocking - see docs for more info!
+void dot() {
+    blinkOn(UNIT);
+    delay(UNIT);
 }
- // Emily W commit changes
-int ledPin = 13; // LED connected to pin 13
+
+void dash() {
+    blinkOn(3 * UNIT);
+    delay(UNIT);
+}
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
+    pinMode(LED_PIN, OUTPUT);
 }
 
 void loop() {
-  // S (Three short flashes)
-  for (int i = 0; i < 3; i++) {
-    digitalWrite(ledPin, HIGH);
-    delay(150); // Short flash
-    digitalWrite(ledPin, LOW);
-    delay(150);
-  }
-  
-  delay(100); // Small gap between letters
 
-  // O (Three long flashes)
-  for (int i = 0; i < 3; i++) {
-    digitalWrite(ledPin, HIGH);
-    delay(500); // Long flash
-    digitalWrite(ledPin, LOW);
-    delay(150);
-  }
-  
-  delay(100); // Small gap between letters
+    // S
+    dot(); dot(); dot();
+    delay(2 * UNIT);
 
-  // S (Three short flashes)
-  for (int i = 0; i < 3; i++) {
-    digitalWrite(ledPin, HIGH);
-    delay(150); // Short flash
-    digitalWrite(ledPin, LOW);
-    delay(150);
-  }
-  
-  delay(2000); // Long pause before repeating the whole sequence
+    // O
+    dash(); dash(); dash();
+    delay(2 * UNIT);
+
+    // S
+    dot(); dot(); dot();
+
+    delay(7 * UNIT);
 }
-
