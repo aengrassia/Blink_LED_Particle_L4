@@ -1,0 +1,40 @@
+#include "Particle.h"
+
+const int LED_PIN = D7;
+const int UNIT = 200;
+
+void blinkOn(int duration) {
+    digitalWrite(LED_PIN, HIGH);
+    delay(duration);
+    digitalWrite(LED_PIN, LOW);
+}
+
+void dot() {
+    blinkOn(UNIT);
+    delay(UNIT);
+}
+
+void dash() {
+    blinkOn(3 * UNIT);
+    delay(UNIT);
+}
+
+void setup() {
+    pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+
+    // S
+    dot(); dot(); dot();
+    delay(2 * UNIT);
+
+    // O
+    dash(); dash(); dash();
+    delay(2 * UNIT);
+
+    // S
+    dot(); dot(); dot();
+
+    delay(7 * UNIT);
+}
