@@ -12,4 +12,4 @@ Note also that while there is only one ground on the Argon (marked GND or using 
 
 Place the Argon onto the breadboard in such a way that when the word "Argon" is rightside up you have the pins on the left of the Argon in breadboard holes on the left of the little valley in the breadboard and you have the pins on the right of the Argon in breadboard holes on the right of the valley. It doesn't strictly matter how far left/right as long as all the pins have breadboard holes/clips to go into. However, we'll make connections to breadboard clips just to the left and right of the left and right pins (respectively) of the Argon, so leave ≥ 1 column to the left and ≥ 1 column to the right. Ensure the top and bottom pins of the Argon aren't extending beyond the top or bottom of the breadboard (i.e., all Argon pins should now have breadboard holes/clips). Press firmly, but not with too much force that the pins bend, on top of the Argon.
 
-
+Breadboard instructions adapted from: [Class-04-Electronics-101/readme.md](https://github.com/SUPScientist/Smart-Coasts/blob/main/Class-04-Electronics-101/readme.md)
